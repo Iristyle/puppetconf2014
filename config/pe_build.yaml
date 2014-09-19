@@ -1,0 +1,4 @@
+---
+pe_build:
+  version: 3.3.2
+  download_root: 'https://pm.puppetlabs.com/puppet-enterprise/:version'

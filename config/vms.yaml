@@ -1,0 +1,103 @@
+---
+vms:
+    # BUG: this must be 'master' based on how pe_build configures agents puppet.conf on Windows
+  - name: master
+    # this must be 'master' or else PE install may fail depending on network
+    hostname: master
+    box: centos-65-x64-virtualbox-nocm
+    roles:
+    # notes that roles are run in reverse order... because
+    - pe-puppet-master
+    - pe-forward-console
+    - el-stop-firewall
+    - el-fix-path
+    - base
+    - 1gb-memory
+  - name: win2012-web-agent
+    # hostname must not be a FQDN or the rename fails on Windows
+    hostname: win2012-web-agent
+    box: win2012r2-x64-vbox4216-nocm
+    box_download_checksum_type: md5
+    box_download_checksum: 47856b336fd1bcd2a349c58b0794e12c
+    roles:
+    - pe-puppet-windows-web
+    - windows
+    - base
+    - 2gb-memory
+  # - name: win2012-sql-agent
+  #   hostname: win2012-sql-agent
+  #   box: win2012r2-x64-vbox4216-nocm
+  #   roles:
+  #   - pe-puppet-windows-sql
+  #   - windows
+  #   - base
+  #   - 2gb-memory
+
+roles:
+  # our actual node specific stuff!
+  pe-puppet-master:
+    provisioners:
+      # pe_bootstrap enables pluginsync and auto certificate signing
+      - {type: pe_bootstrap, role: !ruby/sym master}
+      - type: shell
+        inline: |
+          echo 'nameserver 8.8.8.8' > /etc/resolv.conf
+          sudo cp -R /vagrant/modules/* /etc/puppetlabs/puppet/modules
+          sudo cp -R /vagrant/manifests/* /etc/puppetlabs/puppet/manifests
+          sudo cp -R /vagrant/files/* /etc/puppetlabs/puppet/files
+  pe-puppet-windows-web:
+    provisioners:
+      - {type: pe_bootstrap}
+      - {type: file, source: './facts/windows_features.ps1', destination: 'C:/ProgramData/PuppetLabs/facter/facts.d/windows_features.ps1'}
+      - {type: file, source: './facts/web_role.txt', destination: 'C:/ProgramData/PuppetLabs/facter/facts.d/web_role.txt'}
+  pe-puppet-windows-sql:
+    provisioners:
+      - {type: pe_bootstrap}
+      - {type: file, source: './facts/windows_features.ps1', destination: 'C:/ProgramData/PuppetLabs/facter/facts.d/windows_features.ps1'}
+      - {type: file, source: './facts/database_role.txt', destination: 'C:/ProgramData/PuppetLabs/facter/facts.d/database_role.txt'}
+
+  # custom role definitions from puppet-debugging-kit
+  base:
+    private_networks:
+      - {auto_network: true}
+    provisioners:
+      - {type: hosts}
+  el-stop-firewall:
+    provisioners:
+      - type: shell
+        inline: |
+          service iptables stop
+          chkconfig iptables off
+  # Adds /usr/local/bin to the PATH
+  el-fix-path:
+    provisioners:
+      - type: shell
+        inline: |
+          echo "export PATH=$PATH:/usr/local/bin" > /etc/profile.d/path_fix.sh
+  1gb-memory:
+    providers:
+      - type: virtualbox
+        customize:
+          - [modifyvm, !ruby/sym id, '--memory', 1024]
+      - type: vmware_fusion
+        vmx:
+          memsize: 1024
+  2gb-memory:
+    providers:
+      - type: virtualbox
+        customize:
+          - [modifyvm, !ruby/sym id, '--memory', 2048]
+      - type: vmware_fusion
+        vmx:
+          memsize: 2048
+  pe-forward-console:
+    forwarded_ports:
+      - {guest: 443, host: 4443, auto_correct: true}
+  windows:
+    guest: windows
+    communicator: winrm
+    forwarded_ports:
+      - {guest: 3389, host: 3389, auto_correct: true, id: rdp}
+    provisioners:
+      # necessary for boxes that don't have RDP enabled
+      - {type: shell, path: './config/enable-rdp.bat'}
