@@ -32,13 +32,6 @@ brew cask install virtualbox
 brew cask install vagrant
 ```
 
-- Install the vagrant oscar plugin
-
-```
-vagrant plugin install oscar
-```
-
-
 ### Windows - Chocolatey + Tooling
 
 - Install Chocolatey
@@ -65,10 +58,18 @@ choco install virtualbox
 choco install vagrant
 ```
 
-- Install the Vagrant Oscar plugin
+### Install Vagrant plugins (All Operating Systems)
+
+- Oscar plugin
 
 ```
 vagrant plugin install oscar
+```
+
+- Optionally install snap plugin to take snapshots
+
+```
+vagrant plugin install vagrant-multiprovider-snap
 ```
 
 ### Running from this repository
@@ -115,3 +116,7 @@ vagrant rdp win2012-web-agent
 * [OpenTable Windows Feature](https://forge.puppetlabs.com/opentable/windowsfeature)
 * [Nan Staging Module](https://forge.puppetlabs.com/nanliu/staging)
 * [OpenTable IIS](https://forge.puppetlabs.com/opentable/iis)
+
+#### Other Resources
+
+* [Managing Windows with Puppet from puppetconf 2013](http://puppetlabs.com/presentations/managing-windows-puppet)
