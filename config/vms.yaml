@@ -16,9 +16,9 @@ vms:
   - name: win2012-web-agent
     # hostname must not be a FQDN or the rename fails on Windows
     hostname: win2012-web-agent
-    box: win2012r2-x64-vbox4216-nocm
+    box: win2012r2-x64-virtualbox-nocm
     box_download_checksum_type: md5
-    box_download_checksum: 47856b336fd1bcd2a349c58b0794e12c
+    box_download_checksum: 63b8d3fdde5b7f5190dd937ea7897971
     roles:
     - pe-puppet-windows-web
     - windows
@@ -26,7 +26,7 @@ vms:
     - 2gb-memory
   # - name: win2012-sql-agent
   #   hostname: win2012-sql-agent
-  #   box: win2012r2-x64-vbox4216-nocm
+  #   box: win2012r2-x64-virtualbox-nocm
   #   roles:
   #   - pe-puppet-windows-sql
   #   - windows

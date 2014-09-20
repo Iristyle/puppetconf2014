@@ -29,6 +29,8 @@ boxes:
 
   # rob 2012r2 VirtualBox 4.2.16 box
   'win2012r2-x64-vbox4216-nocm': 'https://s3-us-west-1.amazonaws.com/ebrown-temp/win2012r2-x64-vbox4216-nocm.box'
+  # charlies rebaked version of the above with newer guest additions / rdp enabled
+  'win2012r2-x64-virtualbox-nocm': 'https://s3.amazonaws.com/sharpsteen-files/win2012r2-x64-virtualbox-nocm.box'
   # ethan 2012r2 VirtualBox 4.3.16 box based on Joe Fitzgerald packer templates
   # the SSH client here is awful, and PE doesn't install properly
   # 'win2012r2-x64-vbox4316-nocm': 'https://s3-us-west-1.amazonaws.com/ebrown-temp/win2012r2-x64-vbox4316-nocm.box'
