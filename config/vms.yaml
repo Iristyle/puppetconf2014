@@ -44,13 +44,13 @@ roles:
   pe-puppet-windows-web:
     provisioners:
       - {type: pe_bootstrap}
-      - {type: file, source: './facts/windows_features.ps1', destination: 'C:/ProgramData/PuppetLabs/facter/facts.d/windows_features.ps1'}
       - {type: file, source: './facts/web_role.txt', destination: 'C:/ProgramData/PuppetLabs/facter/facts.d/web_role.txt'}
+      - {type: shell, path: './config/setup-agent.ps1'}
   pe-puppet-windows-sql:
     provisioners:
       - {type: pe_bootstrap}
-      - {type: file, source: './facts/windows_features.ps1', destination: 'C:/ProgramData/PuppetLabs/facter/facts.d/windows_features.ps1'}
       - {type: file, source: './facts/database_role.txt', destination: 'C:/ProgramData/PuppetLabs/facter/facts.d/database_role.txt'}
+      - {type: shell, path: './config/setup-agent.ps1'}
 
   # custom role definitions from puppet-debugging-kit
   base:
