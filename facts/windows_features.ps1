@@ -24,4 +24,7 @@ $ps = @(
   ? { (Test-Path $_) -or (Get-Command $_ -ErrorAction SilentlyContinue) } |
   Select -First 1
 
-&$ps -Command $command
+# ensure that this blocks
+$output = &$ps -Command $command
+
+$output
