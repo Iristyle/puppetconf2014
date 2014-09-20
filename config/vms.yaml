@@ -39,12 +39,8 @@ roles:
     provisioners:
       # pe_bootstrap enables pluginsync and auto certificate signing
       - {type: pe_bootstrap, role: !ruby/sym master}
-      - type: shell
-        inline: |
-          echo 'nameserver 8.8.8.8' > /etc/resolv.conf
-          sudo cp -R /vagrant/modules/* /etc/puppetlabs/puppet/modules
-          sudo cp -R /vagrant/manifests/* /etc/puppetlabs/puppet/manifests
-          sudo cp -R /vagrant/files/* /etc/puppetlabs/puppet/files
+      - {type: shell, inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf" }
+      - {type: shell, path: './config/setup-master.sh' }
   pe-puppet-windows-web:
     provisioners:
       - {type: pe_bootstrap}
