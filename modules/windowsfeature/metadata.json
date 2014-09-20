@@ -1,0 +1,34 @@
+{
+  "name": "opentable-windowsfeature",
+  "version": "0.2.0",
+  "source": "UNKNOWN",
+  "author": "opentable",
+  "license": "MIT",
+  "summary": "Module that will turn windows features on or off for Windows Server 2008 and above",
+  "description": "UNKNOWN",
+  "project_page": "https://github.com/opentable/puppet-windowsfeature",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=4.0.0"
+    },
+    {
+      "name": "joshcooper/powershell",
+      "version_requirement": ">=0.0.6"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "Gemfile": "4179656868d40f05b0f3372b5bc74082",
+    "Gemfile.lock": "c3fb367a2c043bcc3e57428b7730254f",
+    "LICENSE": "9c0fa16bad03a35916263a973ef195ec",
+    "Modulefile": "5e60fe0fd32d4f2bd1bd0bbcbe8c971b",
+    "README.md": "908e70ff3e49c1de1074c5a2a77df08b",
+    "Rakefile": "08cf234d01467acc67062d3853d70bcd",
+    "manifests/init.pp": "9f644949ab282c40a51fe14ef88776b5",
+    "spec/defines/windowsfeature_spec.rb": "0752f688da867f2ffbd226c288175a89",
+    "spec/spec_helper.rb": "b9abc0fa7a39803b000479e6c6a055e0"
+  }
+}
