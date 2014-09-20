@@ -112,6 +112,6 @@ vagrant rdp win2012-web-agent
 * [ACL Module](https://forge.puppetlabs.com/puppetlabs/acl)
 * [PowerShell Module](https://forge.puppetlabs.com/puppetlabs/powershell)
 * [Registry Module](https://forge.puppetlabs.com/puppetlabs/registry)
-* [DISM](https://forge.puppetlabs.com/puppetlabs/dism)
+* [OpenTable Windows Feature](https://forge.puppetlabs.com/opentable/windowsfeature)
 * [Nan Staging Module](https://forge.puppetlabs.com/nanliu/staging)
 * [OpenTable IIS](https://forge.puppetlabs.com/opentable/iis)
