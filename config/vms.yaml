@@ -98,6 +98,15 @@ roles:
     communicator: winrm
     forwarded_ports:
       - {guest: 3389, host: 3389, auto_correct: true, id: rdp}
+    providers:
+      - type: virtualbox
+        # must disable clipboard on 4.3.16 or else deal with major corruption!
+        # https://www.virtualbox.org/manual/ch08.html#vboxmanage-modifyvm-other
+        customize:
+          - [modifyvm, !ruby/sym id, '--clipboard', 'disabled']
+          # - [modifyvm, !ruby/sym id, '--natdnshostresolver1', 'on']
+          - [modifyvm, !ruby/sym id, '--audio', 'none']
+          - [modifyvm, !ruby/sym id, '--usb', 'off']
     provisioners:
       # necessary for boxes that don't have RDP enabled
       - {type: shell, path: './config/enable-rdp.bat'}
