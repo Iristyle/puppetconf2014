@@ -1,0 +1,28 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/Iristyle/source/conf2014-vagrant",
+      "folder_exclude_patterns": [
+        ".pe_build",
+        ".vagrant",
+        "modules/acl/acceptance",
+        "modules/acl/spec",
+        "modules/acl/tests",
+        "modules/download_file/spec",
+        "modules/iis/spec",
+        "modules/nsclient/acceptance",
+        "modules/nsclient/spec",
+        "modules/nsclient/tests",
+        "modules/powershell/spec",
+        "modules/powershell/tests",
+        "modules/registry/acceptance",
+        "modules/registry/spec",
+        "modules/registry/tests",
+        "modules/stdlib/spec",
+        "modules/stdlib/tests",
+        "modules/windowsfeature/spec"
+      ]
+		}
+	]
+}
