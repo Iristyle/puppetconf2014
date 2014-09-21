@@ -45,11 +45,13 @@ node default {
 case $::server_role {
   "web":      {
     notice('node has been identified as a web node')
+    # include puppetconf::disable_error_reporting
     # include puppetconf::iis_enable
     # include puppetconf::mvcapp
   }
   "database": {
     notice('node has been identified as a web node')
+    # include puppetconf::disable_error_reporting
     # include puppetconf::database
   }
   # default:    { fail("Role is undefined") }
