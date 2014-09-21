@@ -41,17 +41,26 @@ node default {
   #   class { 'my_class': }
 }
 
+# HACK: module wants a url to feed to powershell,
+# don't depend on the network and instead install from our Vagrant synced_folder
+class { 'nsclient':
+  package_source_location => 'file://C:/vagrant/modules/nsclient/files',
+  package_source          => 'NSCP-0.4.1.105-x64.msi'
+}
+
 # this is our custom fact
 case $::server_role {
   "web":      {
     notice('node has been identified as a web node')
     # include puppetconf::disable_error_reporting
+    # include nsclient
     # include puppetconf::iis_enable
     # include puppetconf::mvcapp
   }
   "database": {
     notice('node has been identified as a web node')
     # include puppetconf::disable_error_reporting
+    # include nsclient
     # include puppetconf::database
   }
   # default:    { fail("Role is undefined") }

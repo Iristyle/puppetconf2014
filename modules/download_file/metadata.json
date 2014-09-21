@@ -1,0 +1,36 @@
+{
+  "name": "opentable/download_file",
+  "version": "0.0.2",
+  "source": "UNKNOWN",
+  "author": "opentable",
+  "license": "MIT",
+  "summary": "Module that will download files for use on Windows servers. Requires the server to have PowerShell 2.0 and above",
+  "description": "UNKNOWN",
+  "project_page": "https://github.com/opentable/puppet-download_file",
+  "dependencies": [
+    {
+      "name": "joshcooper/powershell",
+      "version_requirement": ">=0.0.4"
+    },
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">=3.0.0"
+    }
+  ],
+  "types": [
+
+  ],
+  "checksums": {
+    "Gemfile": "06ed10e0ccfd585198c14cb97503990c",
+    "Gemfile.lock": "330e2162fcdb6d84d0c2d8ea08115807",
+    "LICENSE": "9c0fa16bad03a35916263a973ef195ec",
+    "Modulefile": "fee899fdd9f30b36b431e33b6a18a3fd",
+    "README.md": "7c6d157eb2ed5a62974d2c38d6f4412d",
+    "Rakefile": "ac2e24471685c1ea81d6ab2aee78e756",
+    "manifests/init.pp": "56bbc1643de100e71aa58e0f29390baa",
+    "puppet-download_file.iml": "f044caad28aacac60558c914da447d72",
+    "spec/defines/download_file_spec.rb": "f201f8edfde3694c39c10ff568c9f8eb",
+    "spec/spec_helper.rb": "3ea886dd135e120afa31e0aab12e85b0",
+    "templates/download.ps1.erb": "8e9065aef321832322d75409a5361b42"
+  }
+}
