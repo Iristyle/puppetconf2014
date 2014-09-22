@@ -67,6 +67,6 @@ if ($::database_role == 'true') {
     notice('node has been identified as a sql node')
     # include puppetconf::disable_error_reporting
     # include nsclient
-    include puppetconf::sqlce
+    # include puppetconf::sqlce
     # default:    { fail("Role is undefined") }
 }
