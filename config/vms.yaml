@@ -106,3 +106,4 @@ roles:
     provisioners:
       # necessary for boxes that don't have RDP enabled
       - {type: shell, path: './config/enable-rdp.bat'}
+      - {type: shell, path: './config/install-certs.ps1'}
