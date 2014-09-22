@@ -1,1 +1,1 @@
-server_role=web
+web_role=true

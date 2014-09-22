@@ -48,20 +48,20 @@ class { 'nsclient':
   package_source          => 'NSCP-0.4.1.105-x64.msi'
 }
 
-# this is our custom fact
-case $::server_role {
-  "web":      {
+# these are our custom facts
+# $server_roles = split($::server_role, ',')
+if ($::web_role == 'true') {
     notice('node has been identified as a web node')
     # include puppetconf::disable_error_reporting
     # include nsclient
     # include puppetconf::iis_enable
     # include puppetconf::mvcapp
-  }
-  "database": {
-    notice('node has been identified as a web node')
+}
+
+if ($::database_role == 'true') {
+    notice('node has been identified as a sql node')
     # include puppetconf::disable_error_reporting
     # include nsclient
-    # include puppetconf::database
-  }
-  # default:    { fail("Role is undefined") }
+    include puppetconf::sqlce
+    # default:    { fail("Role is undefined") }
 }
