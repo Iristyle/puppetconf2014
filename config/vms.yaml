@@ -20,18 +20,11 @@ vms:
     box_download_checksum_type: md5
     box_download_checksum: 63b8d3fdde5b7f5190dd937ea7897971
     roles:
+    - pe-puppet-windows-sql
     - pe-puppet-windows-web
     - windows
     - base
     - 2gb-memory
-  # - name: win2012-sql-agent
-  #   hostname: win2012-sql-agent
-  #   box: win2012r2-x64-virtualbox-nocm
-  #   roles:
-  #   - pe-puppet-windows-sql
-  #   - windows
-  #   - base
-  #   - 2gb-memory
 
 roles:
   # our actual node specific stuff!
