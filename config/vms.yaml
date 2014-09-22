@@ -42,6 +42,8 @@ roles:
       - {type: shell, inline: "echo 'nameserver 8.8.8.8' > /etc/resolv.conf" }
       - {type: shell, path: './config/setup-master.sh' }
   pe-puppet-windows-web:
+    forwarded_ports:
+      - {guest: 80, host: 8080, auto_correct: true}
     provisioners:
       - {type: pe_bootstrap}
       - {type: file, source: './facts/web_role.txt', destination: 'C:/ProgramData/PuppetLabs/facter/facts.d/web_role.txt'}
