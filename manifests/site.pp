@@ -41,11 +41,16 @@ node default {
   #   class { 'my_class': }
 }
 
-# HACK: module wants a url to feed to powershell,
-# don't depend on the network and instead install from our Vagrant synced_folder
-class { 'nsclient':
-  package_source_location => 'file://C:/vagrant/modules/nsclient/files',
-  package_source          => 'NSCP-0.4.1.105-x64.msi'
+
+case downcase($::osfamily) {
+  'windows': {
+    # HACK: module wants a url to feed to powershell,
+    # don't depend on the network and instead install from our Vagrant synced_folder
+    class { 'nsclient':
+      package_source_location => 'file://C:/vagrant/modules/nsclient/files',
+      package_source          => 'NSCP-0.4.1.105-x64.msi'
+    }
+  }
 }
 
 # these are our custom facts
