@@ -58,6 +58,7 @@ case downcase($::osfamily) {
 if ($::web_role == 'true') {
     notice('node has been identified as a web node')
     # include puppetconf::disable_error_reporting
+    # include puppetconf::disable_indexing
     # include nsclient
     # include puppetconf::iis_enable
     # include puppetconf::mvcapp

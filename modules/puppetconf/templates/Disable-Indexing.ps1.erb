@@ -1,0 +1,8 @@
+function Disable-Indexing($Drive)
+{
+  $drive = Get-WmiObject -Class Win32_Volume -Filter "DriveLetter='$Letter'"
+  if ($drive.IndexingEnabled -ne $True) { return }
+  $drive | Set-WmiInstance -Arguments @{IndexingEnabled=$False} | Out-Null
+}
+
+Disable-Indexing -Drive '<%= @driveLetter %>'
