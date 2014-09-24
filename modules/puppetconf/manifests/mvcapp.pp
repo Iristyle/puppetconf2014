@@ -68,6 +68,27 @@ class puppetconf::mvcapp {
 
 
 
+  # TODO: write some code to tweak web.config to enable remote errors
+  # $CustomErrors = 'RemoteOnly'
+  # $customErrors = 'Off'
+
+  # file { 'Web.Config' :
+  #   ensure  => present,
+  #   path    => "${$app_location}\\Web.Config",
+  #   content => template('puppetconf/Web.Config.erb'),
+  #   require => exec['extract_zip'],
+  # }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
