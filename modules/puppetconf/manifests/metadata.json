@@ -1,0 +1,70 @@
+{
+  "name": "ethanbrown-puppetconf",
+  "version": "1.0.3",
+  "author": "ethanbrown",
+  "summary": "This module provides demo code for PuppetConf",
+  "license": "MIT License",
+  "source": "",
+  "project_page": "",
+  "issues_url": "",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Windows",
+      "operatingsystemrelease": [
+        "Server 2003",
+        "Server 2003 R2",
+        "Server 2008",
+        "Server 2008 R2",
+        "Server 2012",
+        "Server 2012 R2",
+        "7",
+        "8"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.3.0"
+    }
+  ],
+  "description": "PuppetConf Windows Demo",
+  "dependencies": [
+    {
+      "name": "puppetlabs/acl",
+      "version_requirement": ">= 1.0.3"
+    },
+    {
+      "name": "opentable/iis",
+      "version_requirement": ">= 1.2.0"
+    },
+    {
+      "name": "puppetlabs/powershell",
+      "version_requirement": ">= 1.0.3"
+    },
+    {
+      "name": "puppetlabs/registry",
+      "version_requirement": ">= 1.0.3"
+    },
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": ">= 4.3.2"
+    },
+    {
+      "name": "opentable/windowsfeature",
+      "version_requirement": ">= 0.2.0"
+    },
+    {
+      "name": "opentable/nsclient",
+      "version_requirement": ">= 1.1.0"
+    },
+    {
+      "name": "opentable/download_file",
+      "version_requirement": ">= 0.0.2"
+    },
+  ]
+}
