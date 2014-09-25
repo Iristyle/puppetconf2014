@@ -4,6 +4,6 @@ user { 'jim':
   name                 => 'jim',
   ensure               => present,
   managehome           => true,
-  password             => 'bob'
+  password             => 'bob',
   groups               => ['Administrators', 'Users']
 }
